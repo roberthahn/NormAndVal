@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Validate Test Suite</title>
+        <script type="text/javascript" language="javascript" src="lib/Val.js"></script>
+        <script type="text/javascript" language="javascript" src="lib/Norm.js"></script>
+        <style>
+        .pass { color: green; }
+        .fail { color: red; }
+        </style>
+    </head>
+    <body>
+        <p>This is the browser-side test suite for NormAndVal.  It's much more basic than vows.js is, but the tests are identical to the ones found in the tests/ directory.</p>
+        <h1>Validate Tests</h1>
+        <ul>
+        <script type="text/javascript" language="javascript">
+            <!--
+                function test(t) {
+                    if (t) {
+                        document.write('<li class="pass">test passed</li>');
+                    } else {
+                        document.write('<li class="fail">test failed</li>');
+                    }
+                }
+
+                function minLengthTest(v, len, expectedErrLength) {
+                    v.minLength(len, 'err');
+                    test(v.errors.length == expectedErrLength)
+                }
+
+                function maxLengthTest(v, len, expectedErrLength) {
+                    v.maxLength(len, 'err');
+                    test(v.errors.length == expectedErrLength)
+                }
+
+                function matchesTest(v, expectedErrLength) {
+                    v.matches(/[a-z]+/, /\d+/, /[A-Z]+/, "abc 123 ABC !@#").atLeast(4, 'err');
+                    test(v.errors.length == expectedErrLength)
+                }
+
+                function matchesTest2(v, expectedErrLength) {
+                    v.matches("abc").atLeast(1, 'err');
+                    test(v.errors.length == expectedErrLength)
+                }
+
+                function requiredTest(v, expectedErrLength) {
+                    v.required('err');
+                    test(v.errors.length == expectedErrLength)
+                }
+
+                var testPhrase1;
+                var testPhrase2 = "abc 123 ABC !@#";
+                var testPhrase3 = "abc";
+                var validator1  = v6e(testPhrase1);
+                var validator2  = v6e(testPhrase2);
+                var validator3  = v6e(testPhrase3);
+                 
+                /**
+                 * test suuite
+                 *
+                 * The tests below are the same as the ones used in the node.js version, just
+                 * less verbose.  If the tests all pass without JS errors, then it's good
+                 * to go.
+                 */
+                minLengthTest(validator1, 1, 0);
+                maxLengthTest(validator1, 3, 0);
+                matchesTest(validator1, 0);
+                requiredTest(validator1, 1);
+                minLengthTest(validator1, 1, 1);
+                maxLengthTest(validator1, 3, 1);
+                matchesTest(validator1, 1);
+
+                minLengthTest(validator2, 1, 0);
+                minLengthTest(validator2, 17 , 1);
+                maxLengthTest(validator2, 17, 1);
+                maxLengthTest(validator2, 3 , 2);
+                matchesTest(validator2, 2);
+                requiredTest(validator2, 2)
+
+                matchesTest(validator3, 1);
+                matchesTest2(validator3, 1);
+
+            //-->
+        </script>
+        </ul>
+        <h1>Normalize Tests</h1>
+        <ul>
+        <script type="text/javascript" language="javascript">
+            <!--
+                function shouldBePhoneNumbers(str, cc, exp) {
+                    var nanp = n7e.NANP(str, cc);
+                    test(nanp == exp);
+                }
+
+                function shouldBePhoneNumbersQU(str, cc, exp) {
+                    var nanp = n7e.NANPQU(str, cc);
+                    test(nanp == exp);
+                }
+
+                function shouldNotBePhoneNumbers(str) {
+                    var nanp = n7e.NANP(str);
+                    test(nanp == str);
+                }
+
+                function shouldBePostalCode(str, exp) {
+                    var CAPostalCode = n7e.CAPostalCode(str);
+                    test(CAPostalCode == exp);
+                }
+
+                function shouldNotBePostalCode(str) {
+                    var CAPostalCode = n7e.CAPostalCode(str);
+                    test(CAPostalCode == str);
+                }
+                 
+                /**
+                 * test suuite
+                 *
+                 * The tests below are the same as the ones used in the node.js version, just
+                 * less verbose.  If the tests all pass without JS errors, then it's good
+                 * to go.
+                 */
+                shouldBePhoneNumbers("ph:555- 555---5555 ext: 1234", false, "555-555-5555");
+                shouldBePhoneNumbers("(555) 555-5555", false, "555-555-5555");
+                shouldBePhoneNumbers("555.555.5555", false, "555-555-5555");
+                shouldBePhoneNumbers("(555) 555-5555", true, "1-555-555-5555");
+                shouldBePhoneNumbers("555.555.5555", true, "1-555-555-5555");
+                shouldNotBePhoneNumbers("(55) 555-5555");
+                shouldBePhoneNumbersQU("(555) 555-5555", false, "555 555-5555");
+                shouldBePhoneNumbersQU("(555) 555-5555", true, "1 555 555-5555");
+
+
+                shouldBePostalCode("XXXXXX", "XXX XXX");
+                shouldBePostalCode("xxxxxx", "XXX XXX");
+                shouldBePostalCode("xxx xxx", "XXX XXX");
+                shouldBePostalCode(" xxx  xxx ", "XXX XXX");
+                shouldBePostalCode(" X1x  2x3 ", "X1X 2X3");
+                shouldNotBePostalCode("90120");
+                shouldNotBePostalCode("90120-1234");
+
+            //-->
+        </script>
+        </ul>
+    </body>
+</html>
