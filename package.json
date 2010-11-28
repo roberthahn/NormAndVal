@@ -1,10 +1,10 @@
 {
-  "name" : "NormAndVal",
-  "version" : "0.1.0",
-  "description" : "Normalize your data to match common conventions; Validate your inputs; use the same libraries in Node.js *and* the browser.",
-  "keywords" : ["util", "normalize", "validate", "normalization", "validation", "library", "data"],
-  "author" : "Robert Hahn <rh-github@roberthahn.ca>",
-  "contributors" : [],
-  "dependencies" : {},
-  "main" : "./lib/index.js"
+  "name": "NormAndVal",
+  "version": "0.0.2",
+  "description": "Normalize your data to match common conventions; Validate your inputs; use the same libraries in Node.js *and* the browser.",
+  "keywords": ["util", "normalize", "validate", "normalization", "validation", "library", "data"],
+  "author": {"name": "roberthahn", "email": "rh-github@roberthahn.ca"},
+  "contributors": [],
+  "dependencies": {},
+  "main": "./lib/index.js"
 }
