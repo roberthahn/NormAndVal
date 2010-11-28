@@ -1,6 +1,11 @@
 # NormAndVal
 ### Normalize your data to match common conventions; Validate your inputs; use the same libraries in Node.js *and* the browser.
 
+## INSTALL
+
+    npm install NormAndVal
+
+
 Unlike many other data normalization and validation libraries, this one is not baked into an ORM, and is designed to work without change in both browser environments and Node.js.  This means you can use the exact same logic to normalize and validate data before it's submitted to the server, and double-check the data on the server.
 
 ## Norm.js
@@ -8,6 +13,8 @@ Unlike many other data normalization and validation libraries, this one is not b
 ### Usage
 
 Norm.js exposes one top-level static object, **n7e**. You don't need to create an instance of **n7e** before using it.
+
+    var n7e = require("NormAndVal").n7e;
 
     // normalize phone numbers:
     n7e.NANP("5555555555") // returns 555-555-5555
@@ -33,6 +40,8 @@ Norm.js exposes one top-level static object, **n7e**. You don't need to create a
 ## Val.js
 
 ### Usage
+
+    var v6e = require("NormAndVal").v6e;
 
     // create some data to validate
     var data = "Node.js is awesome";
