@@ -1,12 +1,11 @@
 # NormAndVal
 ### Normalize your data to match common conventions; Validate your inputs; use the same libraries in Node.js *and* the browser.
 
+Unlike many other data normalization and validation libraries, this one is not baked into an ORM, and is designed to work without change in both browser environments and Node.js.  This means you can use the exact same logic to normalize and validate data before it's submitted to the server, and double-check the data on the server.
+
 ## INSTALL
 
     npm install NormAndVal
-
-
-Unlike many other data normalization and validation libraries, this one is not baked into an ORM, and is designed to work without change in both browser environments and Node.js.  This means you can use the exact same logic to normalize and validate data before it's submitted to the server, and double-check the data on the server.
 
 ## Norm.js
 
