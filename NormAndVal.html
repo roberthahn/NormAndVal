@@ -89,17 +89,17 @@
         <script type="text/javascript" language="javascript">
             <!--
                 function shouldBePhoneNumbers(str, cc, exp) {
-                    var nanp = n7e.NANP(str, cc);
+                    var nanp = n7e.nanp(str, cc);
                     test(nanp == exp);
                 }
 
                 function shouldBePhoneNumbersQU(str, cc, exp) {
-                    var nanp = n7e.NANPQU(str, cc);
+                    var nanp = n7e.nanpQU(str, cc);
                     test(nanp == exp);
                 }
 
                 function shouldNotBePhoneNumbers(str) {
-                    var nanp = n7e.NANP(str);
+                    var nanp = n7e.nanp(str);
                     test(nanp == str);
                 }
 

@@ -33,7 +33,7 @@ suite
 function shouldBePhoneNumbers(test, cc, exp) {
     return {
             topic: function () {
-                return core.n7e.NANP(test, cc);
+                return core.n7e.nanp(test, cc);
             },
             'should be a formatted phone number': function(topic) {
                 assert.equal (topic, exp);
@@ -44,7 +44,7 @@ function shouldBePhoneNumbers(test, cc, exp) {
 function shouldBePhoneNumbersQU(test, cc, exp) {
     return {
             topic: function () {
-                return core.n7e.NANPQU(test, cc);
+                return core.n7e.nanpQU(test, cc);
             },
             'should be a formatted phone number': function(topic) {
                 assert.equal (topic, exp);
@@ -55,7 +55,7 @@ function shouldBePhoneNumbersQU(test, cc, exp) {
 function shouldNotBePhoneNumbers(test) {
     return {
             topic: function () {
-                return core.n7e.NANP(test);
+                return core.n7e.nanp(test);
             },
             'should be the original data': function(topic) {
                 assert.equal (topic, test);
